@@ -1,18 +1,14 @@
 const path = require("path");
 
 module.exports = {
-    mode: "production",
+    devtool: "source-map",
     entry: "./src",
-    output: {
-        filename: "main.js",
-        path: path.resolve(__dirname, "lib"),
-        libraryTarget: "commonjs-module",
-    },
+    mode: "production",
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
+                test: /\.jsx?$/,
                 use: {
                     loader: "babel-loader",
                     options: {
@@ -23,5 +19,13 @@ module.exports = {
             },
         ],
     },
-    devtool: "source-map",
+    output: {
+        filename: "main.js",
+        path: path.resolve(__dirname, "lib"),
+        libraryTarget: "commonjs-module",
+    },
+    resolve: {
+        extensions: [".js", ".jsx"],
+        modules: [path.resolve("./src"), path.resolve("./node_modules")],
+    },
 };
