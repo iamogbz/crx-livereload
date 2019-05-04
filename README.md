@@ -23,4 +23,4 @@ npm run build     # webpack build
 
 ## Typescript
 
-Example conversion [chrome-alt-tabs](https://github.com/iamogbz/chrome-alt-tabs/pull/9)
+[Example conversion](https://github.com/iamogbz/node-js-boilerplate/compare/typescript-conversion)
