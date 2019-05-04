@@ -21,8 +21,8 @@ module.exports = {
     },
     output: {
         filename: "main.js",
+        libraryTarget: "commonjs",
         path: path.resolve(__dirname, "lib"),
-        libraryTarget: "commonjs-module",
     },
     resolve: {
         extensions: [".js", ".jsx"],
