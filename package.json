@@ -5,7 +5,7 @@
     "author": "iamogbz",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/iamogbz/node-js-boilerplate.git"
+        "url": "https://github.com/iamogbz/node-js-boilerplate"
     },
     "bugs": {
         "url": "https://github.com/iamogbz/node-js-boilerplate/issues"
