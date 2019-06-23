@@ -1,7 +1,7 @@
-import { helloWorld } from "../src";
+import "index";
 
 describe("entry", () => {
-    it("runs a test", () => {
-        expect(helloWorld()).toMatchSnapshot();
+    it("does not have any tests", () => {
+        console.error("Add tests!"); // tslint:disable-line no-console
     });
 });

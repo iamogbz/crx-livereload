@@ -31,7 +31,7 @@
         "node": ">=8",
         "npm": ">=6"
     },
-    "main": "index.js",
+    "main": "lib/main.js",
     "scripts": {
         "commitlint": "commitlint-travis",
         "build": "webpack --mode=production",
@@ -44,7 +44,6 @@
         "release": "semantic-release"
     },
     "release": {
-        "dryRun": true,
         "plugins": [
             "@semantic-release/commit-analyzer",
             "@semantic-release/release-notes-generator",
@@ -58,6 +57,9 @@
             "./src",
             "./tests",
             "./node_modules"
+        ],
+        "setupFilesAfterEnv": [
+            "./tests/setup.ts"
         ],
         "testPathIgnorePatterns": [
             "./artifacts/",
@@ -105,10 +107,12 @@
         "@commitlint/cli": "^8.0.0",
         "@commitlint/config-conventional": "^8.0.0",
         "@commitlint/travis-cli": "^8.0.0",
+        "@semantic-release/github": "^5.4.0",
         "@types/chrome": "0.0.86",
         "@types/copy-webpack-plugin": "^5.0.0",
         "@types/jest": "^24.0.9",
         "@types/node": "^12.0.10",
+        "@types/sinon-chrome": "^2.2.6",
         "@types/source-map": "^0.5.2",
         "@types/webpack": "^4.4.25",
         "acorn": "^6.1.1",
@@ -132,7 +136,8 @@
         "prettier-eslint": "^9.0.0",
         "prettier-tslint": "^0.4.2",
         "rxjs": "^6.4.0",
-        "semantic-release": "^15.13.3",
+        "semantic-release": "^15.13.16",
+        "sinon-chrome": "^3.0.1",
         "stylelint": "^10.0.0",
         "stylelint-config-standard": "^18.3.0",
         "stylelint-config-styled-components": "^0.1.1",
