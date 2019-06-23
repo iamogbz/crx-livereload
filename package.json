@@ -31,7 +31,7 @@
         "node": ">=8",
         "npm": ">=6"
     },
-    "main": "index.js",
+    "main": "lib/main.js",
     "scripts": {
         "commitlint": "commitlint-travis",
         "build": "webpack --mode=production",
