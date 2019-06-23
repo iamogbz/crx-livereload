@@ -5,4 +5,16 @@
 [![Build Status](https://travis-ci.org/iamogbz/crx-livereload.svg?branch=master)](https://travis-ci.org/iamogbz/crx-livereload)
 [![Coverage Status](https://coveralls.io/repos/github/iamogbz/crx-livereload/badge.svg?branch=master)](https://coveralls.io/github/iamogbz/crx-livereload?branch=master)
 
+No more manual reloading of unpacked chrome extensions when developing!
+
 Shamelessly ripped from [xpl/crx-hotreload](https://github.com/xpl/crx-hotreload)
+
+## Usage
+
+In your background script
+
+```js
+import "crx-livereload";
+```
+
+Build, watch and see the automagic happen.
