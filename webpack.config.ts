@@ -1,6 +1,7 @@
-const path = require("path");
+import * as path from "path";
+import { Configuration } from "webpack";
 
-module.exports = {
+const configuration: Configuration = {
     devtool: "source-map",
     entry: "./src",
     mode: "production",
@@ -8,12 +9,11 @@ module.exports = {
         rules: [
             {
                 exclude: /(node_modules|bower_components)/,
-                test: /\.jsx?$/,
+                test: /\.tsx?$/,
                 use: {
                     loader: "babel-loader",
                     options: {
-                        presets: ["@babel/preset-env"],
-                        plugins: ["babel-plugin-transform-class-properties"],
+                        presets: ["@babel/preset-typescript"],
                     },
                 },
             },
@@ -25,7 +25,9 @@ module.exports = {
         path: path.resolve(__dirname, "lib"),
     },
     resolve: {
-        extensions: [".js", ".jsx"],
+        extensions: [".js", ".ts"],
         modules: [path.resolve("./src"), path.resolve("./node_modules")],
     },
 };
+
+export default configuration; // tslint:disable-line
