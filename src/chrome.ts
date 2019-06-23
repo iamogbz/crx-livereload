@@ -1,7 +1,11 @@
-export const getExtensionInfo = () => new Promise(chrome.management.getSelf);
+export const getExtensionInfo = () =>
+    new Promise(resolve => chrome.management.getSelf(resolve));
 
 export const getExtensionDirectory = () =>
-    new Promise(chrome.runtime.getPackageDirectoryEntry);
+    new Promise(resolve => chrome.runtime.getPackageDirectoryEntry(resolve));
+
+export const getEntries = (dir: DirectoryEntry) =>
+    new Promise(resolve => dir.createReader().readEntries(resolve));
 
 export const reloadCurrentTab = () =>
     new Promise(resolve =>

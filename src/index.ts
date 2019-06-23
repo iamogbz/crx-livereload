@@ -1,11 +1,12 @@
 import {
+    getEntries,
     getExtensionDirectory,
     getExtensionInfo,
     reloadCurrentTab,
 } from "chrome";
 
 const getFiles = (dir: DirectoryEntry): Promise<File[]> =>
-    new Promise(dir.createReader().readEntries).then(entries =>
+    getEntries(dir).then((entries: Entry[]) =>
         Promise.all(
             entries
                 .filter(e => e.name[0] !== ".")
@@ -33,7 +34,7 @@ export const watchChanges = (dir: DirectoryEntry, lastTimestamp?: string) => {
 };
 
 (async () => {
-    const extInfo = await getExtensionInfo();
+    const extInfo = (await getExtensionInfo()) as chrome.management.ExtensionInfo;
     if (extInfo.installType === "development") {
         getExtensionDirectory().then(watchChanges);
     }
