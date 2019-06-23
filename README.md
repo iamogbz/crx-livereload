@@ -1,4 +1,4 @@
-# NodeJS Boilerplate
+# Chrome Extension Live Reload
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/iamogbz/crx-livereload.svg)](https://greenkeeper.io/)
 [![Dependencies](https://david-dm.org/iamogbz/crx-livereload.svg)](https://github.com/iamogbz/crx-livereload)

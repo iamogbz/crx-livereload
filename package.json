@@ -1,7 +1,7 @@
 {
-    "name": "boilerplate",
+    "name": "crx-livereload",
     "version": "0.0.1",
-    "description": "NodeJS Boilerplate with precommit test and linting configured",
+    "description": "Chrome Extension Live Reloader",
     "author": "iamogbz",
     "repository": {
         "type": "git",
