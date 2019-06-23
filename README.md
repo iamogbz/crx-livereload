@@ -1,30 +1,8 @@
-# NodeJS Boilerplate
+# Chrome Extension Live Reload
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/iamogbz/node-js-boilerplate.svg)](https://greenkeeper.io/)
-[![Dependencies](https://david-dm.org/iamogbz/node-js-boilerplate.svg)](https://github.com/iamogbz/node-js-boilerplate)
-[![Build Status](https://travis-ci.org/iamogbz/node-js-boilerplate.svg?branch=master)](https://travis-ci.org/iamogbz/node-js-boilerplate)
-[![Coverage Status](https://coveralls.io/repos/github/iamogbz/node-js-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/iamogbz/node-js-boilerplate?branch=master)
+[![Greenkeeper badge](https://badges.greenkeeper.io/iamogbz/crx-livereload.svg)](https://greenkeeper.io/)
+[![Dependencies](https://david-dm.org/iamogbz/crx-livereload.svg)](https://github.com/iamogbz/crx-livereload)
+[![Build Status](https://travis-ci.org/iamogbz/crx-livereload.svg?branch=master)](https://travis-ci.org/iamogbz/crx-livereload)
+[![Coverage Status](https://coveralls.io/repos/github/iamogbz/crx-livereload/badge.svg?branch=master)](https://coveralls.io/github/iamogbz/crx-livereload?branch=master)
 
-Simple node js package with linting, testing and building preconfigured
-
-## Shell Commands
-
-```sh
-npm run test      # run jest tests
-```
-
-```sh
-npm run commit    # run commitizen
-```
-
-```sh
-npm run build     # webpack build
-```
-
-### Typescript
-
-```sh
-make typescript
-```
-
-[Example conversion](https://github.com/iamogbz/node-js-boilerplate/compare/typescript-conversion)
+Shamelessly ripped from [xpl/crx-hotreload](https://github.com/xpl/crx-hotreload)
