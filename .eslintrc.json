@@ -12,8 +12,6 @@
     },
     "plugins": [
         "import",
-        "jsx-a11y",
-        "react",
         "prettier"
     ],
     "parserOptions": {
@@ -44,12 +42,8 @@
         "object-property-newline": [2, {
             "allowAllPropertiesOnSameLine": true
         }],
-        "react/jsx-first-prop-new-line": [2, "multiline"],
-        "react/jsx-indent": [2, 4],
-        "react/jsx-indent-props": [2, 4],
         "prettier/prettier": [2, {
             "bracketSpacing": true,
-            "jsxBracketSameLine": false,
             "semi": true,
             "singleQuote": false,
             "tabWidth": 4,
