@@ -2,23 +2,18 @@ import {
     getEntries,
     getExtensionDirectory,
     getExtensionInfo,
-    reloadCurrentTab,
+    reloadExtensionTab,
 } from "chrome";
 
-const getFiles = (dir: DirectoryEntry): Promise<File[]> =>
-    getEntries(dir).then((entries: Entry[]) =>
-        Promise.all(
-            entries
-                .filter(e => e.name[0] !== ".")
-                .map(e =>
-                    e.isDirectory
-                        ? getFiles(e as DirectoryEntry)
-                        : new Promise(resolve =>
-                              (e as FileEntry).file(resolve),
-                          ),
-                ),
-        ).then((files: Array<File[] | File>) => [].concat(...files)),
+const getFiles = async (dir: DirectoryEntry): Promise<File[]> => {
+    const entries = (await getEntries(dir)).filter(e => e.name[0] !== ".");
+    const tasks: Array<Promise<File[] | File>> = entries.map(e =>
+        e.isDirectory
+            ? getFiles(e as DirectoryEntry)
+            : new Promise(resolve => (e as FileEntry).file(resolve)),
     );
+    return [].concat(...(await Promise.all(tasks)));
+};
 
 const getDirectoryTimestamp = (dir: DirectoryEntry) =>
     getFiles(dir).then(files => files.map(f => f.name + f.lastModified).join());
@@ -28,7 +23,7 @@ export const watchChanges = (dir: DirectoryEntry, lastTimestamp?: string) => {
         if (!lastTimestamp || lastTimestamp === timestamp) {
             setTimeout(() => watchChanges(dir, timestamp), 1000);
         } else {
-            reloadCurrentTab();
+            reloadExtensionTab();
         }
     });
 };
