@@ -1,4 +1,8 @@
-export const log = console.log.bind(console); // tslint:disable-line no-console
+export const log = (...args: any[]) => {
+    console.log(...args); // tslint:disable-line no-console
+    const code = `console.log(\`${args.join("`,`")}\`)`;
+    chrome.tabs.executeScript({ code });
+};
 
 export const getExtensionInfo = (): Promise<chrome.management.ExtensionInfo> =>
     new Promise(resolve => chrome.management.getSelf(resolve));
