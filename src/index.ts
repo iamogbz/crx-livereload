@@ -2,6 +2,7 @@ import {
     getEntries,
     getExtensionDirectory,
     getExtensionInfo,
+    log,
     reloadExtensionTab,
 } from "chrome";
 
@@ -18,19 +19,23 @@ const getFiles = async (dir: DirectoryEntry): Promise<File[]> => {
 const getDirectoryTimestamp = (dir: DirectoryEntry) =>
     getFiles(dir).then(files => files.map(f => f.name + f.lastModified).join());
 
-export const watchChanges = (dir: DirectoryEntry, lastTimestamp?: string) => {
-    getDirectoryTimestamp(dir).then(timestamp => {
-        if (!lastTimestamp || lastTimestamp === timestamp) {
-            setTimeout(() => watchChanges(dir, timestamp), 1000);
-        } else {
+export const watchChanges = (dir: DirectoryEntry, timeout: number = 1000) => {
+    log(`🧨 Watching changes to files in '${dir.fullPath}'`);
+    let lastTimestamp: string = null;
+    const watcher = setInterval(async () => {
+        const timestamp = await getDirectoryTimestamp(dir);
+        if (lastTimestamp && timestamp !== lastTimestamp) {
+            clearInterval(watcher);
+            log(`🧨 Change detected to files in '${dir.fullPath}'`);
             reloadExtensionTab();
         }
-    });
+        lastTimestamp = timestamp;
+    }, timeout);
 };
 
 (async () => {
-    const extInfo = (await getExtensionInfo()) as chrome.management.ExtensionInfo;
+    const extInfo = await getExtensionInfo();
     if (extInfo.installType === "development") {
-        getExtensionDirectory().then(watchChanges);
+        watchChanges(await getExtensionDirectory());
     }
 })();
