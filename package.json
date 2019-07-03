@@ -79,19 +79,14 @@
         }
     },
     "lint-staged": {
-        "linters": {
-            "*.js": [
-                "eslint"
-            ],
-            "*.ts": [
-                "tslint"
-            ],
-            "*.{js,ts}": [
-                "jest --bail --findRelatedTests"
-            ]
-        },
-        "ignore": [
-            "**/lib/*"
+        "*.js": [
+            "eslint"
+        ],
+        "*.ts": [
+            "tslint"
+        ],
+        "*.{js,ts}": [
+            "jest --bail --findRelatedTests"
         ]
     },
     "husky": {
