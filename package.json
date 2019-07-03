@@ -1,6 +1,6 @@
 {
     "name": "crx-livereload",
-    "version": "0.0.1",
+    "version": "0.0.0",
     "description": "Chrome Extension Live Reloader",
     "author": "iamogbz",
     "repository": {
@@ -47,6 +47,7 @@
         "plugins": [
             "@semantic-release/commit-analyzer",
             "@semantic-release/release-notes-generator",
+            "@semantic-release/changelogs",
             "@semantic-release/npm",
             "@semantic-release/github"
         ]
@@ -107,6 +108,7 @@
         "@commitlint/cli": "^8.0.0",
         "@commitlint/config-conventional": "^8.0.0",
         "@commitlint/travis-cli": "^8.0.0",
+        "@semantic-release/changelog": "^3.0.4",
         "@semantic-release/github": "^5.4.0",
         "@types/chrome": "0.0.86",
         "@types/copy-webpack-plugin": "^5.0.0",
