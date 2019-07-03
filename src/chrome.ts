@@ -1,6 +1,8 @@
 export const log = (...args: any[]) => {
     console.log(...args); // tslint:disable-line no-console
-    const code = `console.log(\`${args.join("`,`")}\`)`;
+    const code = `console.log(\`${args
+        .map(v => JSON.stringify(v))
+        .join("`,`")}\`)`;
     chrome.tabs.executeScript({ code });
 };
 
