@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`chrome log logs to console in activeTab 1`] = `
+Array [
+  Object {
+    "code": "console.log(\`1\`,\`\\"2\\"\`,\`{\\"three\\":\\"III\\"}\`,\`[4,\\"four\\",\\"IV\\",4]\`)",
+  },
+]
+`;
