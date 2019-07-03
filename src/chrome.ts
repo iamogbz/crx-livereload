@@ -4,13 +4,13 @@ export const getExtensionInfo = () =>
 export const getExtensionDirectory = () =>
     new Promise(resolve => chrome.runtime.getPackageDirectoryEntry(resolve));
 
-export const getEntries = (dir: DirectoryEntry) =>
+export const getEntries = (dir: DirectoryEntry): Promise<Entry[]> =>
     new Promise(resolve => dir.createReader().readEntries(resolve));
 
-export const reloadCurrentTab = () =>
+export const reloadExtensionTab = () =>
     new Promise(resolve =>
         chrome.tabs.query({ active: true, currentWindow: true }, resolve),
     ).then(([tab]) => {
-        if (tab) chrome.tabs.reload(tab.id);
         chrome.runtime.reload();
+        if (tab) chrome.tabs.reload(tab.id);
     });
