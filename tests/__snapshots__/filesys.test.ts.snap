@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`watches for changes to directory 1`] = `
+Array [
+  Array [
+    "🧨 Watching changes to files in '/mock/full/path'",
+  ],
+  Array [
+    "🧨 Change detected to files in '/mock/full/path'",
+  ],
+]
+`;

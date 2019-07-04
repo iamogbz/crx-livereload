@@ -1,7 +1,7 @@
 import * as chromeUtils from "chrome";
-import * as fileUtils from "filesystem";
+import * as fileUtils from "filesys";
 import { mockExtInfo } from "./mocks/chrome";
-import { mockDirEntry } from "./mocks/filesystem";
+import { mockDirEntry } from "./mocks/filesys";
 
 const getExtDirSpy = jest.spyOn(chromeUtils, "getExtensionDirectory");
 const getExtInfoSpy = jest.spyOn(chromeUtils, "getExtensionInfo");
@@ -14,7 +14,10 @@ describe("entry", () => {
         getExtDirSpy.mockResolvedValueOnce(mockDirEntry);
         getExtInfoSpy.mockResolvedValueOnce(mockExtInfo);
         await (await import("index")).initializing;
-        expect(watchChangesSpy).toHaveBeenCalledWith(mockDirEntry);
+        expect(watchChangesSpy).toHaveBeenCalledWith(
+            mockDirEntry,
+            chromeUtils.reloadExtensionTab,
+        );
     });
 
     it("does not watch changes when not in development mode", async () => {

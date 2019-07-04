@@ -7,7 +7,11 @@ import {
     reloadExtensionTab,
 } from "chrome";
 import { SinonStub } from "sinon";
-import { mockDirEntry, mockFileEntry } from "./mocks/filesystem";
+import {
+    mockDirEntry,
+    mockEmptyDirEntry,
+    mockFileEntry,
+} from "./mocks/filesys";
 
 jest.spyOn(console, "log");
 expect.extend({
@@ -46,7 +50,10 @@ describe("chrome", () => {
         });
 
         it("gets entries in directory", async () => {
-            expect(await getEntries(mockDirEntry)).toEqual([mockFileEntry]);
+            expect(await getEntries(mockDirEntry)).toEqual([
+                mockFileEntry,
+                mockEmptyDirEntry,
+            ]);
         });
     });
 
