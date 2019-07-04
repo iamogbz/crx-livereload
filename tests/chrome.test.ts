@@ -3,11 +3,11 @@ import * as chrome from "sinon-chrome";
 import {
     getEntries,
     getExtensionDirectory,
-    getExtensionInfo,
     log,
     reloadExtensionTab,
 } from "chrome";
 import { SinonStub } from "sinon";
+import { mockDirEntry, mockFileEntry } from "./mocks/filesystem";
 
 jest.spyOn(console, "log");
 expect.extend({
@@ -39,22 +39,6 @@ describe("chrome", () => {
     });
 
     describe("directory", () => {
-        const mockEntry = { name: "mock-entry" };
-        const mockFileEntry: FileEntry = ({
-            ...mockEntry,
-            file: (callback: (...args: any[]) => void) =>
-                callback({ lastModified: "20190703000000" }),
-            isFile: true,
-        } as unknown) as FileEntry;
-        const mockDirEntry: DirectoryEntry = ({
-            ...mockEntry,
-            createReader: () => ({
-                readEntries: (callback: (...args: any[]) => void) =>
-                    callback([mockFileEntry]),
-            }),
-            isDirectory: true,
-        } as unknown) as DirectoryEntry;
-
         it("gets extension directory", async () => {
             const gettingExtDir = getExtensionDirectory();
             chrome.runtime.getPackageDirectoryEntry.yield(mockDirEntry);
