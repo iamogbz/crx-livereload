@@ -1,4 +1,4 @@
-export const mockEntry = { name: "mock-entry" };
+export const mockEntry = { name: "mock-entry", fullPath: "/mock/full/path" };
 
 export const mockFileEntry: FileEntry = ({
     ...mockEntry,

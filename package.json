@@ -54,6 +54,7 @@
     },
     "jest": {
         "preset": "ts-jest",
+        "collectCoverageFrom": ["./src/**"],
         "moduleDirectories": [
             "./src",
             "./tests",

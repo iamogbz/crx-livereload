@@ -1,7 +1,7 @@
 import { getExtensionDirectory, getExtensionInfo } from "chrome";
 import { watchChanges } from "filesystem";
 
-(async () => {
+export const initializing = (async () => {
     const extInfo = await getExtensionInfo();
     if (extInfo.installType === "development") {
         watchChanges(await getExtensionDirectory());
