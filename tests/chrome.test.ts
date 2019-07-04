@@ -1,6 +1,11 @@
 import * as chrome from "sinon-chrome";
 
-import { log } from "chrome";
+import {
+    getEntries,
+    getExtensionDirectory,
+    getExtensionInfo,
+    log,
+} from "chrome";
 import { SinonStub } from "sinon";
 
 jest.spyOn(console, "log");
@@ -29,6 +34,34 @@ describe("chrome", () => {
         it("logs to console in activeTab", () => {
             log(...mockArgs);
             expect(chrome.tabs.executeScript.firstCall.args).toMatchSnapshot();
+        });
+    });
+
+    describe("directory", () => {
+        const mockEntry = { name: "mock-entry" };
+        const mockFileEntry: FileEntry = ({
+            ...mockEntry,
+            file: (callback: (...args: any[]) => void) =>
+                callback({ lastModified: "20190703000000" }),
+            isFile: true,
+        } as unknown) as FileEntry;
+        const mockDirEntry: DirectoryEntry = ({
+            ...mockEntry,
+            createReader: () => ({
+                readEntries: (callback: (...args: any[]) => void) =>
+                    callback([mockFileEntry]),
+            }),
+            isDirectory: true,
+        } as unknown) as DirectoryEntry;
+
+        it("gets extension directory", async () => {
+            const gettingExtDir = getExtensionDirectory();
+            chrome.runtime.getPackageDirectoryEntry.yield(mockDirEntry);
+            expect(await gettingExtDir).toEqual(mockDirEntry);
+        });
+
+        it("gets entries in directory", async () => {
+            expect(await getEntries(mockDirEntry)).toEqual([mockFileEntry]);
         });
     });
 });
