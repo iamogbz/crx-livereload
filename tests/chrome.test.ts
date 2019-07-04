@@ -5,6 +5,7 @@ import {
     getExtensionDirectory,
     getExtensionInfo,
     log,
+    reloadExtensionTab,
 } from "chrome";
 import { SinonStub } from "sinon";
 
@@ -62,6 +63,30 @@ describe("chrome", () => {
 
         it("gets entries in directory", async () => {
             expect(await getEntries(mockDirEntry)).toEqual([mockFileEntry]);
+        });
+    });
+
+    describe("reload", () => {
+        const mockTab = { id: 1 };
+
+        it("reloads extension", async () => {
+            const reloadingExtension = reloadExtensionTab();
+            chrome.tabs.query
+                .withArgs({ active: true, currentWindow: true })
+                .yield([]);
+            await reloadingExtension;
+            expect(chrome.runtime.reload).stubToHaveBeenCalledWith();
+            expect(chrome.tabs.reload).not.stubToHaveBeenCalledWith();
+        });
+
+        it("reloads tab", async () => {
+            const reloadingExtension = reloadExtensionTab();
+            chrome.tabs.query
+                .withArgs({ active: true, currentWindow: true })
+                .yield([mockTab]);
+            await reloadingExtension;
+            expect(chrome.runtime.reload).stubToHaveBeenCalledWith();
+            expect(chrome.tabs.reload).stubToHaveBeenCalledWith();
         });
     });
 });
