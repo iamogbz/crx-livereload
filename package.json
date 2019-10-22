@@ -121,7 +121,7 @@
         "babel-runtime": "^6.26.0",
         "commitizen": "^4.0.3",
         "coveralls": "^3.0.3",
-        "cz-conventional-changelog": "^3.0.1",
+        "cz-conventional-changelog": "^3.0.2",
         "eslint": "^6.0.0",
         "eslint-config-airbnb": "^18.0.0",
         "eslint-config-prettier": "^6.0.0",
