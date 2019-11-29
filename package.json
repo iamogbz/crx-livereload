@@ -120,7 +120,7 @@
         "babel-loader": "^8.0.6",
         "babel-runtime": "^6.26.0",
         "commitizen": "^4.0.3",
-        "coveralls": "^3.0.8",
+        "coveralls": "^3.0.9",
         "cz-conventional-changelog": "^3.0.2",
         "eslint": "^6.6.0",
         "eslint-config-airbnb": "^18.0.1",
