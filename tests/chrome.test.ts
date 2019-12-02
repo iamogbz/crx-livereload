@@ -18,9 +18,8 @@ expect.extend({
     stubToHaveBeenCalledWith: (stub: SinonStub, ...args: any[]) => {
         const pass = stub.withArgs(...args).calledOnce;
         const prettyArgs = JSON.stringify(args).slice(1, -1);
-        const message = `${stub} ${
-            pass ? "" : "not "
-        }called with (${prettyArgs})`;
+        const message = () =>
+            `${stub} ${pass ? "" : "not "}called with (${prettyArgs})`;
         return { pass, message };
     },
 });
