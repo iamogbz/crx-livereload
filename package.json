@@ -133,7 +133,7 @@
         "prettier": "^1.19.1",
         "prettier-eslint": "^9.0.1",
         "prettier-tslint": "^0.4.2",
-        "rxjs": "^6.5.3",
+        "rxjs": "^6.5.4",
         "semantic-release": "^15.14.0",
         "sinon-chrome": "^3.0.1",
         "ts-jest": "^24.2.0",
