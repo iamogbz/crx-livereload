@@ -136,7 +136,7 @@
         "rxjs": "^6.5.4",
         "semantic-release": "^17.0.1",
         "sinon-chrome": "^3.0.1",
-        "ts-jest": "^25.1.0",
+        "ts-jest": "^25.2.0",
         "ts-node": "^8.6.2",
         "tslint": "^6.0.0",
         "typescript": "^3.7.5",
