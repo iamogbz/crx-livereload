@@ -119,7 +119,7 @@
         "@types/sinon-chrome": "^2.2.10",
         "@types/source-map": "^0.5.2",
         "@types/webpack": "^4.41.26",
-        "acorn": "^8.0.5",
+        "acorn": "^8.1.0",
         "babel-eslint": "^10.1.0",
         "babel-loader": "^8.2.2",
         "babel-runtime": "^6.26.0",
