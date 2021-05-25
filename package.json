@@ -115,7 +115,7 @@
         "@types/chrome": "0.0.141",
         "@types/copy-webpack-plugin": "^8.0.0",
         "@types/jest": "^26.0.23",
-        "@types/node": "^15.6.0",
+        "@types/node": "^15.6.1",
         "@types/sinon-chrome": "^2.2.10",
         "@types/source-map": "^0.5.2",
         "@types/webpack": "^5.28.0",
