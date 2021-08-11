@@ -114,7 +114,7 @@
         "@semantic-release/github": "^7.2.3",
         "@types/chrome": "0.0.154",
         "@types/copy-webpack-plugin": "^8.0.1",
-        "@types/jest": "^26.0.24",
+        "@types/jest": "^27.0.0",
         "@types/node": "^16.4.13",
         "@types/sinon-chrome": "^2.2.11",
         "@types/source-map": "^0.5.2",
