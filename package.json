@@ -112,7 +112,7 @@
         "@commitlint/travis-cli": "^13.2.1",
         "@semantic-release/changelog": "^6.0.0",
         "@semantic-release/github": "^8.0.1",
-        "@types/chrome": "0.0.158",
+        "@types/chrome": "0.0.159",
         "@types/copy-webpack-plugin": "^8.0.1",
         "@types/jest": "^27.0.2",
         "@types/node": "^16.10.3",
