@@ -135,7 +135,7 @@
         "jest": "^25.5.4",
         "lint-staged": "^12.4.1",
         "prettier": "^1.19.1",
-        "prettier-eslint": "^14.0.3",
+        "prettier-eslint": "^15.0.0",
         "prettier-tslint": "^0.4.2",
         "rxjs": "^7.5.5",
         "semantic-release": "^19.0.2",
