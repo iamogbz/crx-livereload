@@ -109,7 +109,7 @@
         "@babel/preset-typescript": "^7.18.6",
         "@commitlint/cli": "^17.0.3",
         "@commitlint/config-conventional": "^17.0.3",
-        "@commitlint/travis-cli": "^17.0.3",
+        "@commitlint/travis-cli": "^17.1.2",
         "@semantic-release/changelog": "^6.0.1",
         "@semantic-release/github": "^8.0.5",
         "@types/chrome": "0.0.195",
