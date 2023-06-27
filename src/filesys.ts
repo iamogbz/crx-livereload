@@ -15,7 +15,7 @@ const getDirectoryTimestamp = (dir: DirectoryEntry) =>
 
 export const watchChanges = (
     dir: DirectoryEntry,
-    cb: () => void,
+    cb: (...args: unknown[]) => void,
     timeout: number = 1000,
 ) => {
     log(`🧨 Watching changes to files in '${dir.fullPath}'`);
