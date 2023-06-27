@@ -5,7 +5,7 @@ import { mockDirEntry } from "./mocks/filesys";
 
 const getExtDirSpy = jest.spyOn(chromeUtils, "getExtensionDirectory");
 const getExtInfoSpy = jest.spyOn(chromeUtils, "getExtensionInfo");
-const watchChangesSpy = jest.spyOn(fileUtils, "watchChanges");
+const watchChangesSpy = jest.spyOn(fileUtils, "watchChanges").mockImplementation(() => {});
 
 afterEach(jest.clearAllMocks);
 
